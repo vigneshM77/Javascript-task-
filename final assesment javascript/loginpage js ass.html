@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .login-container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+            width: 23%;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .buttons button {
+            margin-right: 10px;
+        }
+        .password-toggle {
+            cursor: pointer;
+        }
+        @media (max-width: 1200px) {
+            .login-container {
+                width: 35%;
+            }
+        }
+        @media (max-width: 1024px) {
+            .login-container {
+                width: 40%;
+            }
+        }
+        @media (max-width: 900px) {
+            .login-container {
+                width: 50%;
+            }
+        }
+        @media (max-width: 768px) {
+            .login-container {
+                width: 60%;
+            }
+        }
+        @media (max-width: 600px) {
+            .login-container {
+                width: 70%;
+            }
+        }
+        @media (max-width: 480px) {
+            .login-container {
+                width: 80%;
+            }
+        }
+        @media (max-width: 400px) {
+            .login-container {
+                width: 90%;
+                padding: 20px;
+            }
+            h1 {
+                font-size: 24px;
+                text-align: center;
+            }
+            .form-group label, .buttons button {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Login Page</h1>
+        <form> 
+            <div class="form-group">
+                <label for="fname">User name</label>
+                <input type="text" id="uname" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="inputPassword">Password</label>
+                <input type="password" id="inputPassword" class="form-control">
+            </div>
+            <div class="buttons">
+                <button type="button" class="btn btn-primary" onclick="loginpage()">Login</button>
+                <button type="button" class="btn btn-danger" onclick="fun()">Logout</button>
+            </div>
+        </form>
+       
+    </div>
+    <script src="loginpage js .js"></script>
+</body>
+</html>
+
+

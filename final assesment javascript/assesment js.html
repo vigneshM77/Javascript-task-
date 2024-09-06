@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./assesment js.css" rel="stylesheet">
+    <style>
+        .sidebar {
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            padding-top: 20px;
+            background-color: #343a40;
+        }
+    
+
+        .sidebar .nav-link {
+            color: white;
+        }
+        @media (max-width: 500px) {
+            .sidebar {
+                position: relative;
+                height: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                position: relative;
+                height: auto;
+            }
+        }
+       
+        .navbar-toggler {
+            border: none;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ffffff' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255, 255, 255, 0.5)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+        }
+
+        .container-fluid {
+            padding-left: 0;
+        }
+
+        @media (min-width: 769px) {
+            main {
+                margin-left: 200px;
+            }
+            .main-container {
+            margin-left: 200px !important;
+        }
+        }
+        @media (min-width: 320px) {
+           
+            .main-container {
+            margin-left: 0px;
+        }
+        }
+        @media (min-width: 992px) {
+           
+           .main-container {
+           margin-left: 300px;
+       }
+    }
+
+
+
+
+
+    .nav-link {
+    color: #fff;
+    border-radius: 5px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    background: transparent;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+
+    outline: none;
+  }
+  .nav-link {
+    border: none;
+    background: transparent;
+      color: #fff;
+      overflow: hidden;
+  }
+  .nav-link:hover {
+      text-decoration: none;
+      color: #fff;
+  }
+ 
+  .nav-link:hover{
+    opacity: .5;
+  }
+  .nav-link:active{
+    box-shadow:  4px 4px 6px 0 rgba(255,255,255,.3),
+                -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+      inset -4px -4px 6px 0 rgba(255,255,255,.2),
+      inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
+  }
+  
+  
+  @-webkit-keyframes shiny-btn1 {
+      0% { -webkit-transform: scale(0) rotate(45deg); opacity: 0; }
+      80% { -webkit-transform: scale(0) rotate(45deg); opacity: 0.5; }
+      81% { -webkit-transform: scale(4) rotate(45deg); opacity: 1; }
+      100% { -webkit-transform: scale(50) rotate(45deg); opacity: 0; }
+  }
+    </style>
+</head>
+<body>
+    
+    <nav class="navbar navbar-dark bg-dark d-md-none justify-content-end">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+    <div class="collapse d-md-none " id="navbarToggleExternalContent">
+        <nav class="bg-dark p-4">
+            <ul class="nav flex-row ">
+                <li class="nav-item">
+                    <a class="nav-link active text-white" href="#">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#" id="sortAsc">Ascending</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#" id="sortDesc">Descending</a>
+                </li>
+            </ul>
+        </nav>
+      
+    </div>
+
+    <div class="container-fluid">
+        <div class="row" style="margin-left: 38px;">
+            <nav class="col-md-3 col-lg-2  text-md-center d-none d-md-block bg-dark sidebar">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item font-size-lg-2">
+                            <a class="nav-link active text-white" href="#">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#" id="sortAsc1">Ascending</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#" id="sortDesc1">Descending</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <main role="main" class="col-md-9 col-lg-10 px-4 main-container">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Employees</h1>
+                </div>
+                <div class="search-bar mb-3">
+                    <input type="text" class="form-control" id="searchInput" placeholder="Search">
+                </div>
+                <div class="row " id="employeeContainer">
+                    <!-- Employee Cards will go here -->
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+         
+        document.addEventListener('DOMContentLoaded', () => {
+            const employeeContainer = document.getElementById('employeeContainer');
+            const searchInput = document.getElementById('searchInput');
+            const sortAsc = document.getElementById('sortAsc');
+            const sortDesc = document.getElementById('sortDesc');
+            const sortAsc1 = document.getElementById('sortAsc1');
+            const sortDesc1 = document.getElementById('sortDesc1');
+            let employees = [];
+
+            // Fetch employee data
+            fetch('https://jsonplaceholder.typicode.com/users')
+                .then(response => response.json())   
+                .then(data => {
+                    employees = data;
+                    displayEmployees(employees);
+                });
+
+            // Display employees
+            function displayEmployees(employeeData) {
+                employeeContainer.innerHTML = '';
+                employeeData.forEach(employee => {
+                    const employeeCard = document.createElement('div');
+                    employeeCard.className = 'col-md-6 col-lg-4 mb-4 col-sm-6';
+                    employeeCard.innerHTML = `
+                        <div class="card text-center col-12 mx-sm-auto align-sm-center mx-xs-left">
+                            <div class="card-body p-sm-0 p-md-1 p-lg-2 ">
+                                <h5 class="card-title">${employee.name}</h5>
+                                <p class="card-text">Username: ${employee.username}</p>
+                                <p class="card-text">Email: ${employee.email}</p>
+                                <p class="card-text">Phone: ${employee.phone}</p>
+                                <span class="badge badge-primary">${employee.company.name}</span>
+                                <span class="badge badge-secondary">${employee.address.city}</span>
+                            </div>
+                        </div>
+                    `;
+                    employeeContainer.appendChild(employeeCard);
+                });
+            }
+
+            // Search functionality
+            searchInput.addEventListener('input', () => {
+                const query = searchInput.value.toLowerCase();
+                const filteredEmployees = employees.filter(employee =>
+                    employee.name.toLowerCase().includes(query) ||
+                    employee.username.toLowerCase().includes(query) ||
+                    employee.email.toLowerCase().includes(query) ||
+                    employee.phone.toLowerCase().includes(query)
+                );
+                displayEmployees(filteredEmployees);
+            });
+
+            // Sort functionality
+            sortAsc.addEventListener('click', () => {
+                const sortedEmployees = [...employees].sort((a, b) => a.name.localeCompare(b.name));
+                displayEmployees(sortedEmployees);
+                console.log("asending");
+            });
+
+            sortDesc.addEventListener('click', () => {
+                const sortedEmployees = [...employees].sort((a, b) => b.name.localeCompare(a.name));
+                displayEmployees(sortedEmployees);
+                console.log("decending");
+            });
+            sortAsc1.addEventListener('click', () => {
+                const sortedEmployees = [...employees].sort((a, b) => a.name.localeCompare(b.name));
+                displayEmployees(sortedEmployees);
+                console.log("asending");
+            });
+
+            sortDesc1.addEventListener('click', () => {
+                const sortedEmployees = [...employees].sort((a, b) => b.name.localeCompare(a.name));
+                displayEmployees(sortedEmployees);
+                console.log("decending");
+            });
+
+        });
+    </script>
+</body>
+</html>

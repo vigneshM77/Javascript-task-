@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="js asseesment.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Registration Form</h2>
+        <form id="myForm" onsubmit="ValidateInputs(event)" target="_blank">
+            <div class="form-group">
+                <label for="uname">User Name:</label>
+                <input type="text" id="uname" name="uname">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="ename">
+            </div>
+            <div class="form-group" id="genderform">
+                <label>Gender:</label>
+                <label><input type="radio" name="gender" value="Male" > Male</label>
+                <label><input type="radio" name="gender" value="Female"> Female</label>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword">Password:</label>
+                <div class="password-container">
+                    <input type="password" id="inputPassword" name="password">
+                    <span class="password-toggle fa fa-eye" onclick="togglePassword()"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob">
+            </div>
+            <div class="form-group">
+                <label for="time">Register Time:</label>
+                <input type="time" id="time" name="time" >
+            </div>
+            <div class="form-group">
+                <label for="inputDropdown">Category:</label>
+                <select id="inputDropdown" name="category" >
+                    <option value="">Select a category</option>
+                    <option value="Category1">Empolye</option>
+                    <option value="Category2">Traniee</option>
+                    <option value="Category3">HR</option>
+                </select>
+            </div>
+            <button type="submit" >Register</button>
+        </form>
+   
+    </div>
+    <script src="./js assesment.js
+    
+    ">
+        
+    </script>
+    <!-- <a href=""></a> -->
+</body>
+</html>
